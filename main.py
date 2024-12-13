@@ -17,8 +17,16 @@ import requests
 #response_json = response.json()
 #print(f"Количество репозиториев с использованием js: {response_json['total_count']}")
 
-img = "https://i.pinimg.com/236x/75/91/08/759108b7ad69db854d9a6b9977324076.jpg"
+#img = "https://i.pinimg.com/236x/75/91/08/759108b7ad69db854d9a6b9977324076.jpg"
 
-response = requests.get(img)
-with open("test.jpg", "wb") as file:
-  file.write(response.content)
+#response = requests.get(img)
+#with open("test.jpg", "wb") as file:
+#  file.write(response.content)
+
+response = requests.get('https://google.com') # Запрос
+
+print(response.status_code)  # Вывод статус-кода
+
+print(response.headers)  # Вывод заголовка
+
+print(response.text)  # Вывод основного текста (тела)
