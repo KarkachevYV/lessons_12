@@ -23,10 +23,24 @@ import requests
 #with open("test.jpg", "wb") as file:
 #  file.write(response.content)
 
-response = requests.get('https://google.com') # Запрос
+#response = requests.get('https://google.com') # Запрос
 
-print(response.status_code)  # Вывод статус-кода
+#print(response.status_code)  # Вывод статус-кода
 
-print(response.headers)  # Вывод заголовка
+#print(response.headers)  # Вывод заголовка
 
-print(response.text)  # Вывод основного текста (тела)
+#print(response.text)  # Вывод основного текста (тела)
+
+url= "https://jsonplaceholder.typicode.com/posts"
+
+data = {
+  "title" : "тестовый post запрос",
+  "body"  : "тестовый контент post запроса",
+  "userId" : 2
+}
+
+response = requests.post(url, data=data)
+
+print(response.status_code)
+
+print(f"ответ - {response.json()}")
