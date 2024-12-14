@@ -1,10 +1,10 @@
 import requests
 #import pprint
 
-#params = {
-#    'q' : 'html'
-#}
-#response = requests.get('https://api.github.com/search/repositories', params=params)
+params = {
+    'q' : 'html'
+}
+response = requests.get('https://api.github.com/search/repositories', params=params)
 #response_json = response.json()
 #pprint.pprint(response_json)
 
@@ -31,15 +31,15 @@ import requests
 
 #print(response.text)  # Вывод основного текста (тела)
 
-url= "https://jsonplaceholder.typicode.com/posts"
+#url= "https://jsonplaceholder.typicode.com/posts"
 
-data = {
-  "title" : "foo",
-  "body"  : "bar",
-  "userId" : 1
-}
+#data = {
+#  "title" : "foo",
+#  "body"  : "bar",
+#  "userId" : 1
+#}
 
-response = requests.post(url, data=data)
+#response = requests.post(url, data=data)
 
 print(response.status_code)
 
