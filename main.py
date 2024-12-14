@@ -1,10 +1,10 @@
 import requests
 #import pprint
 
-#params = {
-#    'q' : 'javascript'
-#}
-# = requests.get('https://api.github.com/search/repositories', params=params)
+params = {
+    'q' : 'html'
+}
+response = requests.get('https://api.github.com/search/repositories', params=params)
 #response_json = response.json()
 #pprint.pprint(response_json)
 
@@ -14,8 +14,8 @@ import requests
 #    print('Произошла ошибка')
 #print (response.text)
 #print(response.content)
-#response_json = response.json()
-#print(f"Количество репозиториев с использованием js: {response_json['total_count']}")
+response_json = response.json()
+print(f"Количество репозиториев с использованием html: {response_json['total_count']}")
 
 #img = "https://i.pinimg.com/236x/75/91/08/759108b7ad69db854d9a6b9977324076.jpg"
 
@@ -31,16 +31,16 @@ import requests
 
 #print(response.text)  # Вывод основного текста (тела)
 
-url= "https://jsonplaceholder.typicode.com/posts"
+#url= "https://jsonplaceholder.typicode.com/posts"
 
-data = {
-  "title" : "тестовый post запрос",
-  "body"  : "тестовый контент post запроса",
-  "userId" : 2
-}
+#data = {
+#  "title" : "тестовый post запрос",
+#  "body"  : "тестовый контент post запроса",
+#  "userId" : 2
+#}
 
-response = requests.post(url, data=data)
+#response = requests.post(url, data=data)
 
-print(response.status_code)
+#print(response.status_code)
 
-print(f"ответ - {response.json()}")
+#print(f"ответ - {response.json()}")
