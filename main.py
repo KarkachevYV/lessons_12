@@ -34,12 +34,12 @@ import requests
 url= "https://jsonplaceholder.typicode.com/posts"
 
 data = {
-  "title" : "тестовый get запрос",
-  "body"  : "тестовый контент get запроса",
+  "title" : "foo",
+  "body"  : "bar",
   "userId" : 1
 }
 
-response = requests.get(url, data=data)
+response = requests.post(url, data=data)
 
 print(response.status_code)
 
