@@ -1,6 +1,5 @@
 import scrapy
 
-
 class ExampleSpiderSpider(scrapy.Spider):
     name = "example_spider"
     allowed_domains = ["https://divan.ru"]
