@@ -24,8 +24,4 @@ class LightingSourcesSpider(scrapy.Spider):
         pagination_links = response.css('a.PaginationLink::attr(href)').getall()
         for link in pagination_links:
             yield response.follow(link, self.parse)
-        
-    def closed(self, reason):
-        # Выводим общее количество после завершения работы паука
-        self.log(f"Общее количество источников освещения: {self.total_lighting_sources}")
 

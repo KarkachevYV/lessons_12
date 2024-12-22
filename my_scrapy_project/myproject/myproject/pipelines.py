@@ -1,5 +1,6 @@
 import csv
 
+
 class MyprojectPipeline:
     def open_spider(self, spider):
         self.file = open('lighting_sources.csv', 'w', newline='', encoding='utf-8')
