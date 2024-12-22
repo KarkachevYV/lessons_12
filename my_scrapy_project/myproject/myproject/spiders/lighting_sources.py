@@ -1,4 +1,5 @@
 import scrapy
+from myproject.items import LightingSourceItem
 
 class LightingSourcesSpider(scrapy.Spider):
     name = "lighting_sources"
@@ -13,18 +14,18 @@ class LightingSourcesSpider(scrapy.Spider):
         lighting_sources = response.css('div._Ud0k')
         for light in lighting_sources:
             self.total_lighting_sources += 1  # Увеличиваем счетчик
-            yield {
-                'name': light.css('div.lsooF span::text').get(),
-                'price': light.css('div.q5Uds span::text').get(),
-                'url': light.css('a').attrib['href']
-            }
+            item = LightingSourceItem()
+            item['name'] = light.css('div.lsooF span::text').get()
+            item['price'] = light.css('div.q5Uds span::text').get()
+            item['url'] = response.urljoin(light.css('a::attr(href)').get())
+            yield item
 
         # Проверка и извлечение всех ссылок пагинации
         pagination_links = response.css('a.PaginationLink::attr(href)').getall()
         for link in pagination_links:
-            if link and response.urljoin(link) != response.url:
-                yield response.follow(link, self.parse)
+            yield response.follow(link, self.parse)
         
     def closed(self, reason):
         # Выводим общее количество после завершения работы паука
         self.log(f"Общее количество источников освещения: {self.total_lighting_sources}")
+
