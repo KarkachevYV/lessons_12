@@ -1,5 +1,10 @@
 import pandas as pd
+import kagglehub
 
+# Download latest version
+path = kagglehub.dataset_download("kanchana1990/world-internet-usage-data-2023-updated")
+
+print("Path to dataset files:", path)
 # 1 этап - пример использования series
 # data = [1, 2, 3, 4, 5]
 # series = pd.Series(data)
@@ -42,14 +47,18 @@ import pandas as pd
 #df.drop(28, axis=0, inplace=True)
 #print(df)
 # 10 этап работа с неполными(частично не заполненными) дата сетами
-df = pd.read_csv('animal.csv')
+#df = pd.read_csv('animal.csv')
 # print(df)
-df.fillna(0, inplace=True) # вариант вставки значений = 0
+#df.fillna(0, inplace=True) # вариант вставки значений = 0
 # print(df)
 # df.dropna(inplace=True) #вариант удаления не желательный,
 # print(df)
 #выборка по группам
-group = df.groupby('Пища')['Средняя продолжительность жизни'].mean()
-print(group)
+#group = df.groupby('Пища')['Средняя продолжительность жизни'].mean()
+#print(group)
 # для сохранения любого дата сета
-df.to_csv('newanimal.csv')
+#df.to_csv('newanimal.csv')
+df = pd.read_csv('internet_users.csv')
+print(df.head())
+print(df.info())
+print(df.describe())
