@@ -114,7 +114,7 @@ students_grades = {
 df = pd.DataFrame(students_grades)
 print(df)
 # Создаём DataFrame
-df = pd.DataFrame(students_grades).T
+df = pd.DataFrame(students_grades).T  # Метод `.T` в pandas используется для транспонирования DataFrame, то есть для преобразования строк в столбцы и столбцов в строки
 
 # Вычисляем средние оценки
 average_grades = df.mean()
